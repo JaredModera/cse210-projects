@@ -6,12 +6,14 @@ public class Journal
 
     public void AddEntry(Entry newEntry)
     {
-
+        // Entry entry1 = newEntry;
+        _entries.Add(newEntry);
     }
 
     public void DisplayAll()
     {
-
+        string entris = _entries.ToString();
+        Console.WriteLine($"Entries: {entris}");
     }
 
     public void SaveToFile(string file)
