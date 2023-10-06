@@ -13,17 +13,52 @@ public class ListingActivity : Activity
         "Who are some of your personal heroes?",
         "What are you afraid of loosing?",
         "Who are you afraid of loosing?",
-        "Which are feelings/emotions that you have pretty often"
+        "Which are feelings/emotions that you have pretty often" 
+        //here i was experimenting to know wich way of defining the list is better
     };
 
-    public ListingActivity(string name, string description, int duration) : base(name, description, duration)
+    public ListingActivity()
     {
-
+        _name = "Listing";
+        _description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
     }
 
     public void Run()
     {
+        DisplayStartingMessage();
+
+        Console.Write("How Long, in seconds, would you like for your session? ");
+        _duration = int.Parse(Console.ReadLine());
+
+        Console.Clear();
+
+        Console.WriteLine("Get ready");
+        ShowSpinner(3);
+
+        Console.WriteLine();
+        Console.WriteLine("List as many responses you can to the following prompt:");
+        Console.WriteLine(GetRandomPrompt());
+        Console.Write("You may begin in: ");
+        ShowCountDown(5);
+
+        Console.WriteLine();
+
+        List<string> userList = GetListFromUser();
         
+        _count = userList.Count();
+
+        Console.WriteLine();
+        Console.WriteLine($"You listed {_count} items!");
+        Console.WriteLine();
+        Console.WriteLine("Well done!!");
+        ShowSpinner(3);
+
+        Console.WriteLine();
+
+        DisplayEndingMessage();
+        ShowSpinner(3);
+
+        Console.Clear();
     }
 
     public string GetRandomPrompt()
@@ -41,7 +76,7 @@ public class ListingActivity : Activity
 
         string randomPrompt = _prompts[number];
 
-        return randomPrompt;
+        return $" --- {randomPrompt} --- ";
     }
     public List<string> GetListFromUser()
     {

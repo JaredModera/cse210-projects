@@ -6,22 +6,24 @@ public class Activity
     protected string _description;
     protected int _duration;
 
-    public Activity(string name, string description, int duration)
+    public Activity()
     {
-        _name = name;
-        _description = description;
-        _duration = duration;
+        _name = "";
+        _description = "description";
+        _duration = 0;
     }
 
     public void DisplayStartingMessage()
     {
         Console.WriteLine($"Welcome to the {_name} Activity");
+        Console.WriteLine();
         Console.WriteLine($"{_description}");
+        Console.WriteLine();
     }
     public void DisplayEndingMessage()
     {
-        Console.WriteLine("Well done!!");
-        Console.WriteLine($"You have completed another {_duration} of the {_name} Activity");
+        // Console.WriteLine("Well done!!");
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_name} Activity");
     }
     public void ShowSpinner(int seconds)
     {
@@ -34,12 +36,15 @@ public class Activity
         animationString.Add("/");
         animationString.Add("-");
         animationString.Add("\\");
+
         DateTime starTime = DateTime.Now;
         DateTime endTime = starTime.AddSeconds(seconds);
+
         int i = 0;
-        
+
         while (DateTime.Now < endTime)
-        {
+        {   
+            
             string a = animationString[i];
             Console.Write(a);
             Thread.Sleep(250);
