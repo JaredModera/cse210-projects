@@ -12,8 +12,8 @@ public class Journal
 
     public void DisplayAll()
     {
-        string entris = _entries.ToString();
-        Console.WriteLine($"Entries: {entris}");
+        string entries = _entries.ToString();
+        Console.WriteLine($"Entries: {entries}");
     }
 
     public void SaveToFile(string file)

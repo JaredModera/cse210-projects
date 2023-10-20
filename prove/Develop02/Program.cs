@@ -11,9 +11,15 @@ class Program
         
 
         Entry anEntry = new Entry();
-        anEntry._entryText = Console.ReadLine();
-        DateTime theCurrentTime = DateTime.Now;
-        anEntry._date = theCurrentTime.ToShortDateString();
+        // DateTime theCurrentTime = DateTime.Now;
+        // anEntry._date = theCurrentTime.ToShortDateString();
+        anEntry._entryText = "ola";
+        anEntry._date = "hoy xd";
+        anEntry._promptText = "huh?";
+
+        Journal jurnal = new Journal();
+        jurnal.AddEntry(anEntry);
+        jurnal.DisplayAll();
         
         
         
